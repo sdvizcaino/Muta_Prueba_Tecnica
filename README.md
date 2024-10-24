@@ -30,29 +30,7 @@ Este proyecto automatiza la validación del formulario de contacto de la página
 
 ## Casos de Prueba Implementados
 
-### Caso de Prueba 1: Verificación de Campos Obligatorios Llenos
-- **Descripción**: Verifica que no se muestren mensajes de error cuando todos los campos obligatorios están completos.
-- **Resultado Esperado**: No deben aparecer mensajes de error.
-
-### Caso de Prueba 2: Verificación de Campos Obligatorios Vacíos
-- **Descripción**: Verifica que se muestren mensajes de error en los campos obligatorios cuando están vacíos.
-- **Resultado Esperado**: Deben aparecer mensajes de error específicos para cada campo vacío.
-
-### Caso de Prueba 3: Verificación de Formato Correcto del Email
-- **Descripción**: Verifica que el formulario permita el envío cuando se ingresa un email con un formato válido.
-- **Resultado Esperado**: El botón debe permitir el envío y no deben aparecer mensajes de error en el campo de email.
-
-### Caso de Prueba 4: Verificación de Formato Incorrecto del Email
-- **Descripción**: Verifica que se muestren mensajes de error cuando se ingresa un email con un formato incorrecto.
-- **Resultado Esperado**: Debe aparecer un mensaje de error indicando que el formato del email es incorrecto.
-
-### Caso de Prueba 5: Comportamiento del Botón de Enviar - Habilitado
-- **Descripción**: Verifica que el botón de enviar esté habilitado solo cuando todos los campos estén completos correctamente.
-- **Resultado Esperado**: El botón de enviar debe estar habilitado cuando todos los campos están llenos.
-
-### Caso de Prueba 6: Comportamiento del Botón de Enviar - Deshabilitado
-- **Descripción**: Verifica que el botón de enviar esté deshabilitado si algún campo obligatorio está vacío.
-- **Resultado Esperado**: El botón debe estar deshabilitado cuando algún campo obligatorio está vacío.
+- Los casos y los reportes de pruebas realizados se encuentran en la carpeta **Test_Case_and_Bugs_Report**
 
 ## Estructura del Proyecto
 

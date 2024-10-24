@@ -1,0 +1,205 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 5,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-10-24T22:46:50.201Z",
+    "end": "2024-10-24T22:48:13.239Z",
+    "duration": 83038,
+    "testsRegistered": 6,
+    "passPercent": 83.33333333333334,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "145578cb-c1d5-4164-aea1-1e2dde8534c5",
+      "title": "",
+      "fullFile": "cypress\\e2e\\MUTA_Contactanos_FormValidacion.cy.js",
+      "file": "cypress\\e2e\\MUTA_Contactanos_FormValidacion.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c256c3ef-ae0f-481d-af61-b6e8be35a4b6",
+          "title": "Validación de Campos Obligatorios en el Formulario de Contacto",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "No mostrar mensajes de error si los campos obligatorios están llenos",
+              "fullTitle": "Validación de Campos Obligatorios en el Formulario de Contacto No mostrar mensajes de error si los campos obligatorios están llenos",
+              "timedOut": null,
+              "duration": 21115,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Función para verificar mensaje en un campo\nconst verificarMensaje = selector => {\n  cy.get(selector).should('not.exist').wait(Tiempo);\n};\n// Llenar todos los campos obligatorios correctamente\ncy.xpath(\"//input[contains(@name,'firstname')]\").type(Nombre, {\n  delay: Tiempo\n});\ncy.xpath(\"//input[contains(@name,'lastname')]\").type(Apellido, {\n  delay: Tiempo\n});\ncy.xpath(\"//input[@placeholder='Nombre de la empresa*']\").type(Compañia, {\n  delay: Tiempo\n});\ncy.xpath(\"//input[contains(@name,'email')]\").type(Email, {\n  delay: Tiempo\n});\ncy.xpath(\"//input[contains(@name,'phone')]\").type(Telefono, {\n  delay: Tiempo\n});\ncy.xpath(\"//input[contains(@name,'city')]\").type(Ciudad, {\n  delay: Tiempo\n});\ncy.xpath(\"//select[contains(@name,'contactreason')]\").select(\"Reciclaje o gestión de residuos\");\n// Verificar que NO se muestren los mensajes\nverificarMensaje('.hs_firstname > .no-list > li'); // Campo Nombre\nverificarMensaje('.hs_lastname > .no-list > li'); // Campo Apellido\nverificarMensaje('.hs_0-2\\\\/name > .no-list > li'); // Campo Compañia\nverificarMensaje('.hs_email > .no-list > li'); // Campo Email\nverificarMensaje('.hs_phone > .no-list > li'); // Campo Telefono\nverificarMensaje('.hs_city > .no-list > li'); // Campo Ciudad\nverificarMensaje('.hs_contactreason > .no-list > li'); // Campo Motivo Contacto",
+              "err": {},
+              "uuid": "6496c415-a2f4-4abe-8f89-48a15c9ca2c4",
+              "parentUUID": "c256c3ef-ae0f-481d-af61-b6e8be35a4b6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Mostrar mensajes de error si los campos obligatorios están vacíos",
+              "fullTitle": "Validación de Campos Obligatorios en el Formulario de Contacto Mostrar mensajes de error si los campos obligatorios están vacíos",
+              "timedOut": null,
+              "duration": 6614,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const verificarMensajeError = (selector, mensajeEsperado) => {\n  cy.resaltarCampo(selector).wait(Tiempo);\n  cy.get(selector).should(\"be.visible\").should(\"have.text\", mensajeEsperado);\n};\n// Click en el botón Enviar\ncy.xpath(\"//input[contains(@type,'submit')]\").should(\"be.visible\").should(\"have.value\", \"Enviar\").click();\n// Verificar que se muestren los mensajes de ERROR en los campos obligatorios\nverificarMensajeError('.hs_firstname > .no-list > li', \"Rellena este campo obligatorio.\");\nverificarMensajeError('.hs_lastname > .no-list > li', \"Rellena este campo obligatorio.\");\nverificarMensajeError('.hs_0-2\\\\/name > .no-list > li', \"Rellena este campo obligatorio.\");\nverificarMensajeError('.hs_email > .no-list > li', \"Rellena este campo obligatorio.\");\nverificarMensajeError('.hs_phone > .no-list > li', \"Rellena este campo obligatorio.\");\nverificarMensajeError('.hs_city > .no-list > li', \"Rellena este campo obligatorio.\");\nverificarMensajeError('.hs_contactreason > .no-list > li', \"Rellena este campo obligatorio.\");\n// Mensaje de error final que indica campos faltantes\ncy.resaltarCampo('.hs_error_rollup').wait(Tiempo);\ncy.get('.hs_error_rollup').should(\"be.visible\").should(\"have.text\", \"Rellena todos los campos obligatorios.\").wait(Tiempo);",
+              "err": {},
+              "uuid": "9f0461af-9c79-468f-a01f-7e7928a845b3",
+              "parentUUID": "c256c3ef-ae0f-481d-af61-b6e8be35a4b6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Debe permitir el envío si el email tiene un formato correcto",
+              "fullTitle": "Validación de Campos Obligatorios en el Formulario de Contacto Debe permitir el envío si el email tiene un formato correcto",
+              "timedOut": null,
+              "duration": 4376,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('input[name=\"email\"]').clear().type(Email);\n// Click en el botón Enviar\ncy.xpath(\"//input[contains(@type,'submit')]\").should(\"have.value\", \"Enviar\").click();\n// Verificar que no aparezca el mensaje de error\ncy.get('.hs_email > .no-list > li').should('not.exist').wait(Tiempo);",
+              "err": {},
+              "uuid": "e1df50ce-3f79-43be-b3a9-fdd94fc86740",
+              "parentUUID": "c256c3ef-ae0f-481d-af61-b6e8be35a4b6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Debe mostrar mensaje de error si el email tiene un formato incorrecto",
+              "fullTitle": "Validación de Campos Obligatorios en el Formulario de Contacto Debe mostrar mensaje de error si el email tiene un formato incorrecto",
+              "timedOut": null,
+              "duration": 4327,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.xpath(\"//input[contains(@name,'email')]\").type(\"Incorrect_email.com\");\n// Click en el botón Enviar\ncy.xpath(\"//input[contains(@type,'submit')]\").should(\"have.value\", \"Enviar\").click();\n// Verificar que se muestre el mensaje de error para formato de email incorrecto\ncy.get('.hs_email > .no-list > li').should(\"be.visible\").should(\"have.text\", \"La dirección de correo debe tener un formato correcto.\");\ncy.resaltarCampo('.hs_email > .no-list > li').wait(Tiempo);",
+              "err": {},
+              "uuid": "e4e0479a-162b-483e-9fe4-f8bc43e819bb",
+              "parentUUID": "c256c3ef-ae0f-481d-af61-b6e8be35a4b6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Debe habilitar el botón de enviar solo cuando todos los campos estén completos correctamente",
+              "fullTitle": "Validación de Campos Obligatorios en el Formulario de Contacto Debe habilitar el botón de enviar solo cuando todos los campos estén completos correctamente",
+              "timedOut": null,
+              "duration": 12662,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.xpath(\"//input[contains(@name,'firstname')]\").type(Nombre, {\n  delay: Tiempo\n});\ncy.xpath(\"//input[contains(@name,'lastname')]\").type(Apellido, {\n  delay: Tiempo\n});\ncy.xpath(\"//input[@placeholder='Nombre de la empresa*']\").type(Compañia, {\n  delay: Tiempo\n});\ncy.xpath(\"//input[contains(@name,'email')]\").type(Email, {\n  delay: Tiempo\n});\ncy.xpath(\"//input[contains(@name,'phone')]\").type(Telefono, {\n  delay: Tiempo\n});\ncy.xpath(\"//input[contains(@name,'city')]\").type(Ciudad, {\n  delay: Tiempo\n});\ncy.xpath(\"//select[contains(@name,'contactreason')]\").select(\"Reciclaje o gestión de residuos\");\n// Verificar que el botón esté habilitado\ncy.resaltarCampo('.hs-button').wait(Tiempo);\ncy.xpath(\"//input[contains(@type,'submit')]\").should(\"be.visible\").should(\"not.be.disabled\");\n//.click();\n// Verificar que no haya mensajes de error globales después del envío\ncy.get('.hs_error_rollup').should('not.exist').wait(Tiempo);",
+              "err": {},
+              "uuid": "c3ce8149-c476-4799-9f86-4998c8ea5544",
+              "parentUUID": "c256c3ef-ae0f-481d-af61-b6e8be35a4b6",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Debe deshabilitar el botón de enviar si algún campo obligatorio está vacío",
+              "fullTitle": "Validación de Campos Obligatorios en el Formulario de Contacto Debe deshabilitar el botón de enviar si algún campo obligatorio está vacío",
+              "timedOut": null,
+              "duration": 17460,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Dejar algún campo obligatorio vacío (Email)\ncy.xpath(\"//input[contains(@name,'firstname')]\").type(Nombre, {\n  delay: Tiempo\n});\ncy.xpath(\"//input[contains(@name,'lastname')]\").type(Apellido, {\n  delay: Tiempo\n});\ncy.xpath(\"//input[@placeholder='Nombre de la empresa*']\").type(Compañia, {\n  delay: Tiempo\n});\ncy.xpath(\"//input[contains(@name,'phone')]\").type(Telefono, {\n  delay: Tiempo\n});\ncy.xpath(\"//input[contains(@name,'city')]\").type(Ciudad, {\n  delay: Tiempo\n});\ncy.xpath(\"//select[contains(@name,'contactreason')]\").select(\"Reciclaje o gestión de residuos\");\n// Verificar que aparezca un mensaje de error en el campo vacío (Email)\ncy.xpath(\"//input[contains(@name,'email')]\").type(Email).clear();\ncy.get('.hs_email > .no-list > li').should(\"be.visible\").and(\"have.text\", \"Rellena este campo obligatorio.\");\n// Verificar que el botón esté deshabilitado\ncy.resaltarCampo('.hs-button').wait(Tiempo);\ncy.xpath(\"//input[contains(@type,'submit')]\").click().should(\"be.visible\").should(\"be.disabled\");",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4050ms: expected '<input.hs-button.primary.large>' to be 'disabled'",
+                "estack": "AssertionError: Timed out retrying after 4050ms: expected '<input.hs-button.primary.large>' to be 'disabled'\n    at Context.eval (webpack://y/./cypress/e2e/MUTA_Contactanos_FormValidacion.cy.js:215:7)",
+                "diff": null
+              },
+              "uuid": "23cd6855-10b9-45e4-966c-dafba5ea047b",
+              "parentUUID": "c256c3ef-ae0f-481d-af61-b6e8be35a4b6",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "6496c415-a2f4-4abe-8f89-48a15c9ca2c4",
+            "9f0461af-9c79-468f-a01f-7e7928a845b3",
+            "e1df50ce-3f79-43be-b3a9-fdd94fc86740",
+            "e4e0479a-162b-483e-9fe4-f8bc43e819bb",
+            "c3ce8149-c476-4799-9f86-4998c8ea5544"
+          ],
+          "failures": [
+            "23cd6855-10b9-45e4-966c-dafba5ea047b"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 66554,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/evidences/logs",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

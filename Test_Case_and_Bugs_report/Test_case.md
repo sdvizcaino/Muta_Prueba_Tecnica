@@ -62,8 +62,8 @@
 - **Descripción**: Verifica que el botón "Enviar" esté deshabilitado si algún campo obligatorio está vacío.
 
   1. Navegar a la página de contacto https://mutaworld.com/contactanos.
-  2. Llenar algunos de los campos obligatorios con datos válidos (Nombre,Apellido,Nombre de la Empresa,numero telefonico,ciudad).
-  3. Dejar el campo Correo Electronico empresarial vacio
+  2. Llenar algunos de los campos obligatorios con datos válidos.
+  3. Dejar el algun campo obligatorio vacio (Ej: Correo Electronico empresarial)
   4. Hacer Click en "Motivo de contacto" y seleccionar alguna de las opciones.
   5. Hacer clic en el botón "Enviar".
 
