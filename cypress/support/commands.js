@@ -23,3 +23,10 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+//
+// Definir un comando personalizado para resaltar un campo en rojo
+Cypress.Commands.add('resaltarCampo', (selector) => {
+    cy.get(selector).then(($el) => {
+      $el.css('border', '2px solid red'); // Añadir un borde rojo para resaltar el campo
+    });
+  });

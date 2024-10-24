@@ -21,10 +21,11 @@ describe('Validación de Campos Obligatorios en el Formulario de Contacto', () =
   //-- CASO DE PRUEBA 1
   it('No mostrar mensajes de error si los campos obligatorios están llenos', () => {
     
-    // Función para verificar mensaje de error en un campo
+    // Función para verificar mensaje en un campo
     const verificarMensaje = (selector) => {
       cy.get(selector)
-        .should('not.exist');
+        .should('not.exist')
+        .wait(Tiempo);
     };
 
     // Llenar todos los campos obligatorios correctamente
@@ -49,6 +50,7 @@ describe('Validación de Campos Obligatorios en el Formulario de Contacto', () =
     cy.xpath("//select[contains(@name,'contactreason')]")
         .select("Reciclaje o gestión de residuos")
 
+    // Verificar que NO se muestren los mensajes
     verificarMensaje('.hs_firstname > .no-list > li') // Campo Nombre
     verificarMensaje('.hs_lastname > .no-list > li') // Campo Apellido
     verificarMensaje('.hs_0-2\\/name > .no-list > li') // Campo Compañia
@@ -58,12 +60,15 @@ describe('Validación de Campos Obligatorios en el Formulario de Contacto', () =
     verificarMensaje('.hs_contactreason > .no-list > li') // Campo Motivo Contacto
 
   });
-
   
   //-- CASO DE PRUEBA 2
   it('Mostrar mensajes de error si los campos obligatorios están vacíos', () => {
    
     const verificarMensajeError = (selector, mensajeEsperado) => {
+      
+      cy.resaltarCampo(selector)
+          .wait(Tiempo);
+
       cy.get(selector)
           .should("be.visible")
           .should("have.text", mensajeEsperado);
@@ -75,7 +80,7 @@ describe('Validación de Campos Obligatorios en el Formulario de Contacto', () =
       .should("have.value", "Enviar")
       .click();
 
-    // Verificar que se muestren los mensajes de error en los campos obligatorios
+    // Verificar que se muestren los mensajes de ERROR en los campos obligatorios
     verificarMensajeError('.hs_firstname > .no-list > li', "Rellena este campo obligatorio."); 
     verificarMensajeError('.hs_lastname > .no-list > li', "Rellena este campo obligatorio."); 
     verificarMensajeError('.hs_0-2\\/name > .no-list > li', "Rellena este campo obligatorio."); 
@@ -85,9 +90,13 @@ describe('Validación de Campos Obligatorios en el Formulario de Contacto', () =
     verificarMensajeError('.hs_contactreason > .no-list > li', "Rellena este campo obligatorio."); 
 
     // Mensaje de error final que indica campos faltantes
-    cy.get('.hs_error_rollup > .no-list > li > .hs-main-font-element')
+    cy.resaltarCampo('.hs_error_rollup')
+          .wait(Tiempo);
+
+    cy.get('.hs_error_rollup')
         .should("be.visible")
-        .should("have.text", "Rellena todos los campos obligatorios.");
+        .should("have.text", "Rellena todos los campos obligatorios.")
+        .wait(Tiempo);
   });
 
   //-- CASO DE PRUEBA 3
@@ -101,8 +110,10 @@ describe('Validación de Campos Obligatorios en el Formulario de Contacto', () =
         .click();
 
     // Verificar que no aparezca el mensaje de error
+
     cy.get('.hs_email > .no-list > li')
-        .should('not.exist');
+        .should('not.exist')
+        .wait(Tiempo);
   });
 
   //-- CASO DE PRUEBA 4
@@ -119,6 +130,9 @@ describe('Validación de Campos Obligatorios en el Formulario de Contacto', () =
     cy.get('.hs_email > .no-list > li')
       .should("be.visible")
       .should("have.text", "La dirección de correo debe tener un formato correcto.");
+
+      cy.resaltarCampo('.hs_email > .no-list > li')
+      .wait(Tiempo);
   });
 
   //-- CASO DE PRUEBA 5
@@ -146,6 +160,9 @@ describe('Validación de Campos Obligatorios en el Formulario de Contacto', () =
       .select("Reciclaje o gestión de residuos");
   
     // Verificar que el botón esté habilitado
+    cy.resaltarCampo('.hs-button')
+      .wait(Tiempo);
+
     cy.xpath("//input[contains(@type,'submit')]")
       .should("be.visible")
       .should("not.be.disabled")
@@ -153,11 +170,12 @@ describe('Validación de Campos Obligatorios en el Formulario de Contacto', () =
     
     // Verificar que no haya mensajes de error globales después del envío
     cy.get('.hs_error_rollup')
-        .should('not.exist');
+        .should('not.exist')
+        .wait(Tiempo);
   });
 
   //-- CASO DE PRUEBA 6
-  it.only('Debe deshabilitar el botón de enviar si algún campo obligatorio está vacío', () => {
+  it('Debe deshabilitar el botón de enviar si algún campo obligatorio está vacío', () => {
     
     // Dejar algún campo obligatorio vacío (Email)
     cy.xpath("//input[contains(@name,'firstname')]")
@@ -188,9 +206,13 @@ describe('Validación de Campos Obligatorios en el Formulario de Contacto', () =
       .and("have.text", "Rellena este campo obligatorio.");
 
     // Verificar que el botón esté deshabilitado
+    cy.resaltarCampo('.hs-button')
+      .wait(Tiempo);
+
     cy.xpath("//input[contains(@type,'submit')]")
       .click()
       .should("be.visible")
-      .should("be.disabled"); // Verificar que el botón esté deshabilitado
+      .should("be.disabled")
+      
   });
 });

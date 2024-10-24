@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-10-24T21:03:57.220Z",
+    "end": "2024-10-24T21:04:36.495Z",
+    "duration": 39275,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "132d2382-98e2-4b25-b844-cde03b577b7d",
+      "title": "",
+      "fullFile": "cypress\\e2e\\MUTA_Contactanos_FormValidacion.cy.js",
+      "file": "cypress\\e2e\\MUTA_Contactanos_FormValidacion.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1fedc3dc-b5ab-46d0-9336-39cf5f7f8448",
+          "title": "Validación de Campos Obligatorios en el Formulario de Contacto",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Debe deshabilitar el botón de enviar si algún campo obligatorio está vacío",
+              "fullTitle": "Validación de Campos Obligatorios en el Formulario de Contacto Debe deshabilitar el botón de enviar si algún campo obligatorio está vacío",
+              "timedOut": null,
+              "duration": 26189,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Dejar algún campo obligatorio vacío (Email)\ncy.xpath(\"//input[contains(@name,'firstname')]\").type(Nombre, {\n  delay: Tiempo\n});\ncy.xpath(\"//input[contains(@name,'lastname')]\").type(Apellido, {\n  delay: Tiempo\n});\ncy.xpath(\"//input[@placeholder='Nombre de la empresa*']\").type(Compañia, {\n  delay: Tiempo\n});\ncy.xpath(\"//input[contains(@name,'phone')]\").type(Telefono, {\n  delay: Tiempo\n});\ncy.xpath(\"//input[contains(@name,'city')]\").type(Ciudad, {\n  delay: Tiempo\n});\ncy.xpath(\"//select[contains(@name,'contactreason')]\").select(\"Reciclaje o gestión de residuos\");\n// Verificar que aparezca un mensaje de error en el campo vacío (Email)\ncy.xpath(\"//input[contains(@name,'email')]\").type(Email).clear();\ncy.get('.hs_email > .no-list > li').should(\"be.visible\").and(\"have.text\", \"Rellena este campo obligatorio.\");\n// Verificar que el botón esté deshabilitado\ncy.resaltarCampo('.hs-button').wait(Tiempo);\ncy.xpath(\"//input[contains(@type,'submit')]\").click().should(\"be.visible\").should(\"be.disabled\");",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4050ms: expected '<input.hs-button.primary.large>' to be 'disabled'",
+                "estack": "AssertionError: Timed out retrying after 4050ms: expected '<input.hs-button.primary.large>' to be 'disabled'\n    at Context.eval (webpack://y/./cypress/e2e/MUTA_Contactanos_FormValidacion.cy.js:215:7)",
+                "diff": null
+              },
+              "uuid": "08783f04-0b3b-4989-80c1-9edd41c8343b",
+              "parentUUID": "1fedc3dc-b5ab-46d0-9336-39cf5f7f8448",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "08783f04-0b3b-4989-80c1-9edd41c8343b"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 26189,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/evidences/logs",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
