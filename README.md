@@ -17,7 +17,7 @@ Este proyecto utiliza **Cypress** como herramienta de automatización de pruebas
 3. Inicia Cypress con el comando `npx cypress open` para abrir la interfaz visual de Cypress y seleccionar las pruebas que deseas ejecutar.
 
 #### **Estructura de las Pruebas**
-Las pruebas están organizadas en un archivo **`cypress/e2e/formValidation.cy.js`**, donde se incluyen tres tipos de pruebas principales:
+Las pruebas están organizadas en un archivo **`cypress/e2e/MUTA_Contactanos_FormValidacion.cy.js`**, donde se incluyen tres tipos de pruebas principales:
 
 1. **Prueba de llenado exitoso de campos obligatorios:**
    - Verifica que no se muestren mensajes de error cuando los campos obligatorios están correctamente llenos.
