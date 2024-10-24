@@ -22,11 +22,12 @@
   
   - **Imagen**: https://drive.google.com/file/d/123NOSHhD9LEgOmvOHuat8Kscrpj3v_7l/view?usp=sharing
   - **Video**: https://drive.google.com/file/d/1_21reBBayo9s7VkEEz5E6fyqCgd_SL9I/view?usp=sharing
-  - **Mochawesome**: https://drive.google.com/file/d/1MYmK3FnbPi2EUDymzwNw80-2c1k8_kDw/view?usp=sharing
+  - **Reporte de prueba**: https://drive.google.com/file/d/139PSDKNaXBRpiNyPHtdIHMZ-AdgDX8g2/view?usp=sharing
 
 - **informacion adicional**:
   - Cypress:        13.15.0                                                                        │
   - Browser:        Chrome 130 (headless)                                                          │
   - Node Version:   v22.7.0 (C:\Program Files\nodejs\node.exe)
+  - ID Caso de Prueba:  CPA005
 
 - **Prioridad**: Alta
