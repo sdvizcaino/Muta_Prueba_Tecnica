@@ -1,90 +1,95 @@
-### Descripción del Proyecto
+# Prueba Técnica - Validación del Formulario de Contacto en MUTA
 
-#### **Proyecto: Automatización de Pruebas para la Validación del Formulario de Contacto en MUTA**
-Este proyecto utiliza **Cypress** como herramienta de automatización de pruebas para validar los campos obligatorios en el formulario de contacto de la página web de MUTA. El objetivo principal es verificar que los mensajes de error se desplieguen correctamente cuando los campos están vacíos o presentan información inválida, asegurando que los datos ingresados cumplan con los requisitos de validación.
+## Descripción General
 
-#### **Requisitos Previos**
-1. Node.js instalado.
-2. Cypress instalado como dependencia del proyecto.
-3. Adicionalmente, se utilizan los siguientes plugins:
-   - `cypress-xpath`: Para facilitar la selección de elementos en el DOM mediante expresiones XPath.
-   - `cypress-plugin-tab`: Permite la navegación entre los campos usando la tecla "tab".
-   - `faker`: Generador de datos aleatorios (nombres, emails, ciudades, etc.) para simular entradas de usuario válidas y probar los campos del formulario.
+Este proyecto automatiza la validación del formulario de contacto de la página web de **MUTA**. Utilizando **Cypress** como herramienta principal, se desarrollaron diversos casos de prueba para garantizar la correcta validación de los campos obligatorios, la verificación del formato del campo de email y el comportamiento del botón de envío.
 
-#### **Configuración del Proyecto**
-1. Clona el repositorio en tu máquina local.
-2. Ejecuta `npm install` para instalar las dependencias del proyecto.
-3. Inicia Cypress con el comando `npx cypress open` para abrir la interfaz visual de Cypress y seleccionar las pruebas que deseas ejecutar.
+## Tecnologías Utilizadas
 
-#### **Estructura de las Pruebas**
-Las pruebas están organizadas en un archivo **`cypress/e2e/MUTA_Contactanos_FormValidacion.cy.js`**, donde se incluyen tres tipos de pruebas principales:
+- **Cypress** - Framework de pruebas automatizadas.
+- **cypress-xpath** - Soporte para selectores XPath en Cypress.
+- **@faker-js/faker** - Generador de datos dinámicos y realistas para pruebas.
+- **cypress-plugin-tab** - Plugin para navegación mediante la tecla `Tab`.
+- **Mochawesome** - Generador de reportes de pruebas.
 
-1. **Prueba de llenado exitoso de campos obligatorios:**
-   - Verifica que no se muestren mensajes de error cuando los campos obligatorios están correctamente llenos.
-   - Utiliza la librería `faker` para generar datos válidos, como nombres, apellidos, correos electrónicos y teléfonos.
+## Configuración del Proyecto
 
-   ```javascript
-   it('No mostrar mensajes de error si los campos obligatorios están llenos', () => {
-       // Llenado de los campos
-       // Verificación de la inexistencia de mensajes de error
-   });
+1. Clonar este repositorio y navegar a la carpeta raíz del proyecto.
+2. Instalar las dependencias necesarias con el siguiente comando:
+
+   ```bash
+   npm install
    ```
 
-2. **Prueba de validación de campos vacíos:**
-   - Comprueba que se desplieguen los mensajes de error cuando los campos obligatorios están vacíos.
-   - Utiliza una función auxiliar para verificar los mensajes de error de cada campo.
+3. Ejecutar las pruebas en diferentes navegadores utilizando los siguientes scripts:
 
-   ```javascript
-   it('Mostrar mensajes de error si los campos obligatorios están vacíos', () => {
-       // Simulación de envío del formulario vacío
-       // Verificación de los mensajes de error en cada campo
-   });
+   ```bash
+   npm run chrome_Muta_FormValidacion  # Ejecutar en Chrome
+   npm run edge_Muta_FormValidacion    # Ejecutar en Edge
    ```
 
-3. **Validación de formato de email:**
-   - Verifica tanto si el campo de correo electrónico acepta un formato correcto como si rechaza uno incorrecto.
-   
-   ```javascript
-   it('Debe mostrar mensaje de error si el email tiene un formato incorrecto', () => {
-       // Simulación de email incorrecto y verificación de mensaje de error
-   });
+## Casos de Prueba Implementados
+
+### Caso de Prueba 1: Verificación de Campos Obligatorios Llenos
+- **Descripción**: Verifica que no se muestren mensajes de error cuando todos los campos obligatorios están completos.
+- **Resultado Esperado**: No deben aparecer mensajes de error.
+
+### Caso de Prueba 2: Verificación de Campos Obligatorios Vacíos
+- **Descripción**: Verifica que se muestren mensajes de error en los campos obligatorios cuando están vacíos.
+- **Resultado Esperado**: Deben aparecer mensajes de error específicos para cada campo vacío.
+
+### Caso de Prueba 3: Verificación de Formato Correcto del Email
+- **Descripción**: Verifica que el formulario permita el envío cuando se ingresa un email con un formato válido.
+- **Resultado Esperado**: El botón debe permitir el envío y no deben aparecer mensajes de error en el campo de email.
+
+### Caso de Prueba 4: Verificación de Formato Incorrecto del Email
+- **Descripción**: Verifica que se muestren mensajes de error cuando se ingresa un email con un formato incorrecto.
+- **Resultado Esperado**: Debe aparecer un mensaje de error indicando que el formato del email es incorrecto.
+
+### Caso de Prueba 5: Comportamiento del Botón de Enviar - Habilitado
+- **Descripción**: Verifica que el botón de enviar esté habilitado solo cuando todos los campos estén completos correctamente.
+- **Resultado Esperado**: El botón de enviar debe estar habilitado cuando todos los campos están llenos.
+
+### Caso de Prueba 6: Comportamiento del Botón de Enviar - Deshabilitado
+- **Descripción**: Verifica que el botón de enviar esté deshabilitado si algún campo obligatorio está vacío.
+- **Resultado Esperado**: El botón debe estar deshabilitado cuando algún campo obligatorio está vacío.
+
+## Estructura del Proyecto
+
+- **cypress/e2e/MUTA_Contactanos_FormValidacion.cy.js**: Archivo principal con los casos de prueba automatizados.
+- **cypress/support/commands.js**: Comandos personalizados para las pruebas.
+- **cypress/evidences**: Carpeta que contiene capturas de pantalla, videos y logs de las pruebas ejecutadas.
+- **cypress.config.js**: Archivo de configuración de Cypress para la ejecución y generación de evidencias.
+
+## Ejecución de Pruebas
+
+1. **Ejecutar Cypress en modo interactivo**:
+
+   ```bash
+   npx cypress open
    ```
 
-#### **Descripción del Código**
-- **Faker.js:** Se utiliza para generar entradas dinámicas y válidas para los campos de nombre, apellido, email, teléfono, compañía y ciudad.
-  
-  ```javascript
-  let Nombre = faker.person.firstName();
-  let Apellido = faker.person.lastName();
-  let Email = faker.internet.email();
-  ```
+   Seleccionar el archivo `MUTA_Contactanos_FormValidacion.cy.js` en la interfaz de Cypress y ejecutar las pruebas.
 
-- **Cypress Xpath:** Facilita la selección de elementos en el DOM a través de expresiones XPath, lo cual es útil cuando los selectores CSS tradicionales no son suficientes.
-  
-  ```javascript
-  cy.xpath("//input[contains(@name,'firstname')]").type(Nombre);
-  ```
+2. **Ejecutar Cypress en modo CLI** (sin interfaz):
 
-- **Validación de mensajes de error:** Se verifican los mensajes de error para cada campo obligatorio cuando están vacíos, y se asegura que no aparezcan mensajes de error si los campos están completos.
-  
-  ```javascript
-  const verificarMensaje = (selector) => {
-    cy.get(selector).should('not.exist');
-  };
-  ```
+   ```bash
+   npm run chrome_Muta_FormValidacion  # Para ejecutar en Chrome
+   npm run edge_Muta_FormValidacion    # Para ejecutar en Edge
+   ```
 
-- **Validación de formatos:** Especial atención se le da al campo de email, asegurándose de que el sistema muestre mensajes de error si se ingresa un formato incorrecto.
+## Generación de Reportes
 
-  ```javascript
-  it('Debe mostrar mensaje de error si el email tiene un formato incorrecto', () => {
-      cy.xpath("//input[contains(@name,'email')]").type("Incorrect_email.com");
-      // Verificación del mensaje de error
-  });
-  ```
+Los reportes de las pruebas se generan automáticamente con **Mochawesome** y se almacenan en la carpeta `cypress/evidences/logs`. Puedes revisar los reportes en formato HTML para obtener una vista detallada de los resultados de las pruebas.
 
-#### **Mejoras Propuestas**
-1. **Cobertura de Pruebas:** Se podría incluir la validación de campos opcionales o la interacción con otros formularios en la página para asegurar mayor cobertura.
-2. **Accesibilidad:** Agregar pruebas que validen la navegación del formulario utilizando el teclado (tabulación entre campos).
-3. **Validaciones adicionales:** Implementar más pruebas para verificar el comportamiento de la aplicación con diferentes idiomas y configuraciones regionales.
+## Sugerencias de Mejora
+
+1. **Pruebas de Carga y Estrés**: Realizar pruebas para validar la capacidad del formulario de contacto bajo diferentes niveles de tráfico.
+2. **Validaciones Avanzadas de Email**: Implementar validaciones adicionales para el campo de email, verificando caracteres especiales y dominios válidos.
+3. **Pruebas de Accesibilidad**: Verificar que la navegación por teclado y la compatibilidad con lectores de pantalla sean adecuadas.
+
+## Autor
+
+Este proyecto fue desarrollado por **Sebastián Vizcaíno**.
 
 
