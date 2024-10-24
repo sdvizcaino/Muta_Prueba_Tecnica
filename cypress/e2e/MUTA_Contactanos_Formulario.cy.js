@@ -25,13 +25,26 @@ describe('Validación de Campos Obligatorios en el Formulario de Contacto', () =
   };
 
   it('No mostrar mensajes de error si los campos obligatorios están llenos', () => {
-    cy.xpath("//input[contains(@name,'firstname')]").type(Nombre,{delay: Tiempo} )
-    cy.xpath("//input[contains(@name,'lastname')]").type(Apellido, {delay: Tiempo})
-    cy.xpath("//input[@placeholder='Nombre de la empresa*']").type(Compañia, {delay: Tiempo})
-    cy.xpath("//input[contains(@name,'email')]").type(Email,{delay: Tiempo})
-    cy.xpath("//input[contains(@name,'phone')]").type(Telefono, {delay: Tiempo})
-    cy.xpath("//input[contains(@name,'city')]").type(Ciudad, {delay: Tiempo})
-    cy.xpath("//select[contains(@name,'contactreason')]").select("Reciclaje o gestión de residuos")
+    cy.xpath("//input[contains(@name,'firstname')]")
+        .type(Nombre,{delay: Tiempo} )
+
+    cy.xpath("//input[contains(@name,'lastname')]")
+        .type(Apellido, {delay: Tiempo})
+
+    cy.xpath("//input[@placeholder='Nombre de la empresa*']")
+        .type(Compañia, {delay: Tiempo})
+
+    cy.xpath("//input[contains(@name,'email')]")
+        .type(Email,{delay: Tiempo})
+
+    cy.xpath("//input[contains(@name,'phone')]")
+        .type(Telefono, {delay: Tiempo})
+
+    cy.xpath("//input[contains(@name,'city')]")
+        .type(Ciudad, {delay: Tiempo})
+
+    cy.xpath("//select[contains(@name,'contactreason')]")
+        .select("Reciclaje o gestión de residuos")
 
     verificarMensaje('.hs_firstname > .no-list > li') // Campo Nombre
     verificarMensaje('.hs_lastname > .no-list > li') // Campo Apellido
@@ -69,8 +82,8 @@ describe('Validación de Campos Obligatorios en el Formulario de Contacto', () =
 
     // Mensaje de error final que indica campos faltantes
     cy.get('.hs_error_rollup > .no-list > li > .hs-main-font-element')
-      .should("be.visible")
-      .should("have.text", "Rellena todos los campos obligatorios.");
+        .should("be.visible")
+        .should("have.text", "Rellena todos los campos obligatorios.");
   });
 
   it('Debe permitir el envío si el email tiene un formato correcto', () => {
@@ -79,11 +92,12 @@ describe('Validación de Campos Obligatorios en el Formulario de Contacto', () =
 
     // Click en el botón Enviar
     cy.xpath("//input[contains(@type,'submit')]")
-      .should("have.value", "Enviar")
-      .click();
+        .should("have.value", "Enviar")
+        .click();
 
     // Verificar que no aparezca el mensaje de error
-    cy.get('.hs_email > .no-list > li').should('not.exist');
+    cy.get('.hs_email > .no-list > li')
+        .should('not.exist');
   });
 
   it('Debe mostrar mensaje de error si el email tiene un formato incorrecto', () => {
