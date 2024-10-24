@@ -1,4 +1,4 @@
-### README.md: Descripción del Proyecto
+### Descripción del Proyecto
 
 #### **Proyecto: Automatización de Pruebas para la Validación del Formulario de Contacto en MUTA**
 Este proyecto utiliza **Cypress** como herramienta de automatización de pruebas para validar los campos obligatorios en el formulario de contacto de la página web de MUTA. El objetivo principal es verificar que los mensajes de error se desplieguen correctamente cuando los campos están vacíos o presentan información inválida, asegurando que los datos ingresados cumplan con los requisitos de validación.
