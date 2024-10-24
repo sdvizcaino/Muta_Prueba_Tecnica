@@ -15,7 +15,7 @@ describe('Validación de Campos Obligatorios en el Formulario de Contacto', () =
   beforeEach(() => {
     cy.visit('https://mutaworld.com/contactanos');
     cy.title().should("eq", "Contáctanos – Muta");
-    cy.viewport(1080, 760);
+    cy.viewport(1280, 720);
   });
 
   // Función para verificar mensaje de error en un campo
