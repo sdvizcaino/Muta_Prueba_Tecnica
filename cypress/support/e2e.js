@@ -18,3 +18,16 @@ import './commands'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+
+// Archivo: cypress/support/e2e.js o cypress/support/index.js
+
+// Ignorar error de React 418 y 423
+Cypress.on('uncaught:exception', (err, runnable) => {
+    // Ignorar errores específicos de React
+    if (err.message.includes('Minified React error #418') || 
+        err.message.includes('Minified React error #423')) {
+      return false; // Prevenir que Cypress falle el test
+    }
+    // Permitir que Cypress maneje cualquier otro error
+    return true;
+  });

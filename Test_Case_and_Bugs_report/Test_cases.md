@@ -67,4 +67,5 @@
   4. Hacer Click en "Motivo de contacto" y seleccionar alguna de las opciones.
   5. Hacer clic en el botón "Enviar".
 
-- **Resultado Esperado**: El botón debe estar deshabilitado cuando algún campo obligatorio está vacío.
+- **Resultado Esperado**: 
+  - El botón debe estar deshabilitado cuando algún campo obligatorio está vacío.

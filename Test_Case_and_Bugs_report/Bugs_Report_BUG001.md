@@ -26,8 +26,7 @@
 
 - **informacion adicional**:
   - Cypress:        13.15.0                                                                        │
-  - Browser:        Chrome 130 (headless)                                                          │
-  - Node Version:   v22.7.0 (C:\Program Files\nodejs\node.exe)
+  - Browser:        Chrome 130                                                       │
   - ID Caso de Prueba:  CPA005
 
 - **Prioridad**: Alta

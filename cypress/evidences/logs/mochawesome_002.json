@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-10-25T01:37:07.950Z",
+    "end": "2024-10-25T01:37:40.022Z",
+    "duration": 32072,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "b433c19a-c931-4769-8cd5-9db2f97db380",
+      "title": "",
+      "fullFile": "cypress\\e2e\\MUTA_RegistroEmp_RegValidacion.cy.js",
+      "file": "cypress\\e2e\\MUTA_RegistroEmp_RegValidacion.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "bd719355-af49-47f4-84bb-86d4e8ff7da2",
+          "title": "Formulario de registro para empresas",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Registro Exitoso al llenar todos los campos obligatorios",
+              "fullTitle": "Formulario de registro para empresas Registro Exitoso al llenar todos los campos obligatorios",
+              "timedOut": null,
+              "duration": 21967,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Llenar todos los campos obligatorios correctamente\ncy.get('#firstname-input').type(Nombre, {\n  delay: Tiempo\n});\ncy.get('#lastname-input').type(Apellido, {\n  delay: Tiempo\n});\ncy.get('#company-input').type(Compañia, {\n  delay: Tiempo\n});\ncy.get('#jobtitle-input').type(\"Gerente\", {\n  delay: Tiempo\n});\ncy.get('#email-input').type(Email, {\n  delay: Tiempo\n});\ncy.get('#phone-input').type(Telefono, {\n  delay: Tiempo\n});\ncy.get('#city-input').type(Ciudad, {\n  delay: Tiempo\n});\ncy.get('#que_desean_reciclar_').should(\"be.visible\").click();\ncy.get('[data-value=\"Ambos\"]').should(\"be.visible\").click();\ncy.get(':nth-child(1) > .MuiButtonBase-root > .PrivateSwitchBase-input').click();\ncy.get(':nth-child(2) > .MuiButtonBase-root > .PrivateSwitchBase-input').click();\ncy.get('.css-1nuctf6 > .MuiButtonBase-root > .PrivateSwitchBase-input').click();\n// Verificar que el botón \"Enviar\" esté habilitado\ncy.get('.MuiButton-root').should(\"be.visible\").should(\"not.be.disabled\").click().wait(Tiempo);\n// Verificar Mensaje de Registro completado\ncy.window().then(win => {\n  win.scrollBy(0, -500); //Scroll Arriba\n});\ncy.resaltarCampo('.style_container__2a6BD > .MuiBox-root > .medium-weight').wait(Tiempo);\ncy.get('.style_container__2a6BD > .MuiBox-root > .medium-weight').should(\"be.visible\").wait(Tiempo).should(\"contain\", \"Registro Exitoso\");",
+              "err": {
+                "message": "AssertionError: expected '<p.MuiTypography-root.MuiTypography-body1.medium-weight.biggest-size.color-gray-light.align-center.css-1ekqped>' to contain 'Registro Exitoso'",
+                "estack": "AssertionError: expected '<p.MuiTypography-root.MuiTypography-body1.medium-weight.biggest-size.color-gray-light.align-center.css-1ekqped>' to contain 'Registro Exitoso'\n    at Context.eval (webpack://y/./cypress/e2e/MUTA_RegistroEmp_RegValidacion.cy.js:75:13)",
+                "diff": null
+              },
+              "uuid": "fddfc736-f0ef-466c-af88-b04e8ad62e75",
+              "parentUUID": "bd719355-af49-47f4-84bb-86d4e8ff7da2",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "fddfc736-f0ef-466c-af88-b04e8ad62e75"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 21967,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/evidences/logs",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

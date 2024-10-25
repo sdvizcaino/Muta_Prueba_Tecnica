@@ -30,7 +30,7 @@ Este proyecto automatiza la validación del formulario de contacto de la página
 
 ## Casos de Prueba Implementados
 
-- Los casos y los reportes de pruebas realizados se encuentran en la carpeta **Test_Case_and_Bugs_Report**
+- Los casos y los reportes de pruebas realizados se encuentran en la carpeta **Test_Case_and_Bugs_Report** con sus respectivos archivos.
 
 ## Estructura del Proyecto
 
