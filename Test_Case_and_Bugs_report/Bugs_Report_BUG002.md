@@ -32,12 +32,12 @@
 - **Evidencia**:
   
   - **Imagen**: https://drive.google.com/file/d/1Sq9wQ_HDIMDRY35pfvImks20doixOCYn/view?usp=sharing
-  - **Video**: https://drive.google.com/file/d/1WZyZdXYE9HBv5m8rqo2OsMoXZclEXXy2/view?usp=sharing
+  - **Video**: https://drive.google.com/file/d/1VCE9etqFlHryZYy0n4pOEjlfXoFiBvQd/view?usp=sharing
   - **Reporte de prueba**: https://drive.google.com/file/d/172z6OXvMCYDBlHzSKLSBs3dT__79rp4O/view?usp=sharing
 
 - **informacion adicional**:
   - Cypress:        13.15.0 
-  - Browser:        Chrome Ver 130 / Edge Ver 130
+  - Browser:        Chrome Ver 130
   - ID Caso de Prueba:  CPA007
 
 - **Prioridad**: Alta

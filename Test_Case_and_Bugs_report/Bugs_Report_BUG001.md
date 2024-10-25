@@ -30,7 +30,7 @@
 
 - **informacion adicional**:
   - Cypress:        13.15.0 
-  - Browser:        Chrome Ver 130 / Edge Ver 130
+  - Browser:        Chrome Ver 130
   - ID Caso de Prueba:  CPA006
 
 - **Prioridad**: Alta
