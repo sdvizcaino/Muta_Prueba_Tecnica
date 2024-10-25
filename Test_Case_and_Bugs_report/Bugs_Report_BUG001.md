@@ -5,7 +5,11 @@
 ### Reportado por: Sebastian Vizcaino
 
 - **Descripción**: El botón de enviar está habilitado incluso cuando hay campos obligatorios vacíos.
-  
+
+- **Precondiciones**:
+  - Acceso a Internet
+  - Tener Instalado un Navegador (Edge, Chrome)
+
 - **Pasos para Reproducir**:
   
   1. Navegar a la página de contacto https://mutaworld.com/contactanos.
@@ -25,8 +29,8 @@
   - **Reporte de prueba**: https://drive.google.com/file/d/139PSDKNaXBRpiNyPHtdIHMZ-AdgDX8g2/view?usp=sharing
 
 - **informacion adicional**:
-  - Cypress:        13.15.0                                                                        │
-  - Browser:        Chrome 130                                                       │
-  - ID Caso de Prueba:  CPA005
+  - Cypress:        13.15.0 
+  - Browser:        Chrome Ver 130 / Edge Ver 130
+  - ID Caso de Prueba:  CPA006
 
 - **Prioridad**: Alta

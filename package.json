@@ -5,8 +5,11 @@
   "main": "index.js",
   "scripts": {
     "chrome_Muta_FormValidacion": "cypress run --spec cypress/e2e/MUTA_Contactanos_FormValidacion.cy.js --browser chrome",
-    "edge_Muta_FormValidacion": "cypress run --spec cypress/e2e/MUTA_Contactanos_FormValidacion.cy.js --browser edge"
+    "edge_Muta_FormValidacion": "cypress run --spec cypress/e2e/MUTA_Contactanos_FormValidacion.cy.js --browser edge",
+    "chrome_Muta_RegValidacion": "cypress run --spec cypress/e2e/MUTA_RegistroEmp_RegValidacion.cy.js --browser chrome",
+    "edge_Muta_RegValidacion": "cypress run --spec cypress/e2e/MUTA_RegistroEmp_RegValidacion.cy.js --browser edge"
   },
+  
   "author": "Sebastian Vizcaino",
   "license": "ISC",
   "devDependencies": {
